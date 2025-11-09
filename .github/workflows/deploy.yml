@@ -1,0 +1,56 @@
+# Workflow name
+name: Deploy to GitHub Pages
+
+on:
+  # Run on push to the 'main' branch
+  push:
+    branches: [main]
+
+  # Allows you to manually run this workflow from the Actions tab on GitHub
+  workflow_dispatch:
+
+# List of jobs to be performed
+jobs:
+  # Deployment job
+  deploy:
+    # Permissions needed to deploy to GitHub Pages
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+        env:
+          # Sets the public base path for Vite to correctly build assets for GitHub Pages
+          VITE_BASE_URL: /${{ github.event.repository.name }}/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
