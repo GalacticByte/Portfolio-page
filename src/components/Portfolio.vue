@@ -70,7 +70,7 @@ export default {
         title: 'Strona Wizytówka',
         description: 'Strona wizytówka, na którą teraz patrzysz',
         github: 'https://github.com/GalacticByte/Portfolio-page',
-        live: 'https://geralt1002.github.io/Portfolio-page/',
+        live: 'https://galacticbyte.github.io/Portfolio-page/',
         technology: 'HTML / SCSS / VUE',
         image: images['/src/assets/img/portfolio.jpg'].default,
       },
