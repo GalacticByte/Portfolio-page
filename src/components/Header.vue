@@ -1,21 +1,21 @@
 <template>
   <section class="home" role="region" aria-labelledby="home-title">
-    <div class="row home__hero">
-      <div class="col-sm-12 home__hero-box">
-        <h1 id="home-title" class="font-h1 home__title">front-end developer</h1>
-        <p class="font-p-bigger home__subtitle">Tworzę strony i aplikacje internetowe</p>
+    <div class="row">
+      <div class="col-12 d-flex flex-column justify-content-center align-items-center home__hero">
+        <h1 id="home-title" class="font-h1 home__title">front&nbsp;end developer</h1>
+        <p class="font-p-bigger home__subtitle">
+          Przekształcam pomysły w&nbsp;strony i&nbsp;aplikacje, które po&nbsp;prostu działają
+        </p>
 
-        <div class="home__btn-box">
-          <a
-            v-smooth-scroll
-            class="btn btn-main font-p home__btn"
-            href="#contact"
-            role="button"
-            aria-label="Skontaktuj się ze mną"
-          >
-            <span>Skontaktuj się ze mną</span>
-          </a>
-        </div>
+        <a
+          v-smooth-scroll
+          class="btn btn-main font-p mt-5"
+          href="#contact"
+          role="button"
+          aria-label="Skontaktuj się ze mną"
+        >
+          <span>Skontaktuj się ze mną</span>
+        </a>
       </div>
     </div>
   </section>
@@ -56,15 +56,8 @@ export default {
   &__hero {
     position: relative;
     z-index: 2;
-    height: 55rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 55rem;
     text-align: center;
-  }
-
-  &__hero-box {
-    align-content: center;
   }
 
   &__title {
@@ -86,15 +79,9 @@ export default {
   }
 
   &__subtitle {
-    font-weight: 400;
+    font-weight: 600;
     color: rgb(89, 214, 17);
     margin-top: 1rem;
-  }
-
-  &__btn-box {
-    display: flex;
-    justify-content: center;
-    padding-top: 3rem;
   }
 }
 
@@ -109,11 +96,7 @@ export default {
 @media (max-width: 768px) {
   .home {
     &__hero {
-      height: 30rem;
-    }
-
-    &__btn-box .btn-main {
-      padding: 1rem 1.5rem;
+      min-height: 30rem;
     }
   }
 }

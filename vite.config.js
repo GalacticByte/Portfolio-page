@@ -9,7 +9,7 @@ export default defineConfig({
   base: '/Portfolio-page/',
   plugins: [
     vue(),
-    // vueDevTools(),
+    // vueDevTools()
   ],
   resolve: {
     alias: {

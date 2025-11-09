@@ -1,54 +1,50 @@
 <template>
   <nav
     ref="navbar"
-    class="navbar navbar-expand-lg navbar-dark sticky-top bg-black"
+    class="navbar navbar-expand-lg navbar-dark sticky-top nav-custom-bg container-fluid px-2 px-md-3"
     role="navigation"
     aria-label="Główna nawigacja"
   >
-    <div class="container-fluid px-2 px-md-3">
-      <a class="navbar-brand text-center text-lg-start" href="/" aria-label="Strona główna">
-        <p class="fw-bold mb-0 text-start text-uppercase font-p-big">
-          Krzysztof Umiński
-          <small class="d-block font-p-small">front-end developer</small>
-        </p>
-      </a>
+    <a class="navbar-brand text-center text-lg-start" href="/" aria-label="Strona główna">
+      <p class="fw-bold mb-0 text-start text-uppercase font-p-big">
+        Krzysztof Umiński
+        <small class="d-block font-p-small">front-end developer</small>
+      </p>
+    </a>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Otwórz/Zamknij nawigację"
-      >
-        <span class="toggler-icon top-bar"></span>
-        <span class="toggler-icon middle-bar"></span>
-        <span class="toggler-icon bottom-bar"></span>
-      </button>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Otwórz/Zamknij nawigację"
+    >
+      <span class="toggler-icon top-bar"></span>
+      <span class="toggler-icon middle-bar"></span>
+      <span class="toggler-icon bottom-bar"></span>
+    </button>
 
-      <!-- Menu -->
-      <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
-        <ul class="navbar-nav gap-lg-5 gap-3">
-          <li class="nav-item font-p">
-            <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#header">Home</a>
-          </li>
-          <li class="nav-item font-p">
-            <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#about">O mnie</a>
-          </li>
-          <li class="nav-item font-p">
-            <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#technologies"
-              >Technologie</a
-            >
-          </li>
-          <li class="nav-item font-p">
-            <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item font-p">
-            <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#contact">Kontakt</a>
-          </li>
-        </ul>
-      </div>
+    <!-- Menu -->
+    <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav gap-lg-5 gap-3">
+        <li class="nav-item font-p">
+          <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#header">Home</a>
+        </li>
+        <li class="nav-item font-p">
+          <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#about">O mnie</a>
+        </li>
+        <li class="nav-item font-p">
+          <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#technologies">Technologie</a>
+        </li>
+        <li class="nav-item font-p">
+          <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#portfolio">Portfolio</a>
+        </li>
+        <li class="nav-item font-p">
+          <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#contact">Kontakt</a>
+        </li>
+      </ul>
     </div>
   </nav>
 </template>
@@ -62,11 +58,11 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../scss/mixins/mixin_app.scss' as *;
 
-.bg-black {
-  background-color: rgb(206, 208, 194);
+.nav-custom-bg {
+  background-color: rgb(20, 20, 20);
 }
 
 .navbar {
