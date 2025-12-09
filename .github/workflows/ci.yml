@@ -1,0 +1,38 @@
+# Workflow name
+name: CI for Develop Branch
+
+on:
+  # Run on push to the 'develop' branch
+  push:
+    branches: [develop]
+  # Also run on Pull Request to the 'develop' branch
+  pull_request:
+    branches: [develop]
+
+# List of jobs to be performed
+jobs:
+  # Job name
+  build:
+    # The operating system the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps to be performed within the job
+    steps:
+      # 1. Checkout repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm' # Enable caching of npm dependencies
+
+      # 3. Install project dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Build the project (check for errors)
+      - name: Build project
+        run: npm run build

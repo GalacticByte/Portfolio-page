@@ -1,53 +1,46 @@
 <template>
-  <section id="contact" class="container contact-section">
-    <div class="row section-header">
-      <div class="col-12 section-header__title">
-        <h2 class="mb-3 mt-5 font-h2 section-header__headline">Chcesz podjąć współpracę?</h2>
+  <section id="contact" class="container contact">
+    <div class="row contact__header">
+      <div class="col-12">
+        <h2 class="mb-3 mt-5 font-h2 d-flex justify-content-center contact__headline">
+          Chcesz podjąć współpracę?
+        </h2>
       </div>
     </div>
-    <div class="row justify-content-center contact-section__content">
-      <div
-        class="col-12 d-flex flex-column align-items-center justify-content-center contact-section__details"
-      >
-        <p class="font-p text-center contact-section__text">
-          Jeśli chcesz mnie zatrudnić, pisz na adres
-          <span class="contact-section__email">krzysztof.uminski1@gmail.com</span>
-        </p>
-        <div class="my-5 contact-section__button">
-          <a class="btn btn-main font-p" href="mailto:krzysztof.uminski1@gmail.com">
-            <span>Napisz do mnie</span>
+    <div class="row justify-content-center contact__content">
+      <div class="col-12 d-flex flex-column align-items-center justify-content-center">
+        <p class="font-p text-center">Jeśli chcesz mnie zatrudnić, pisz na adres</p>
+        <a class="btn btn-main font-p mt-3" href="mailto:krzysztof.uminski1@gmail.com" role="button"
+          >krzysztof.uminski1@gmail.com</a
+        >
+      </div>
+    </div>
+    <div class="row justify-content-center contact__footer">
+      <div class="col-12 d-flex justify-content-center align-items-center gap-3">
+        <p class="font-p mb-0 contact__name">Krzysztof Umiński</p>
+        <div class="d-flex contact__socials">
+          <a
+            class="mx-2 contact-section__social-link"
+            href="https://github.com/GalacticByte"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Krzysztof Umiński"
+          >
+            <img class="contact__social-icon" src="../assets/img/icons/github.svg" alt="GitHub" />
           </a>
-        </div>
-        <div class="d-flex align-items-center contact-section__info">
-          <p class="font-p mb-0 contact-section__name">Krzysztof Umiński</p>
-          <div class="d-flex contact-section__social-links">
-            <a
-              class="mx-2 contact-section__social-link"
-              href="https://github.com/geralt1002"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub Krzysztofa Umińskiego"
-            >
-              <img
-                class="contact-section__social-icon"
-                src="../assets/img/icons/github.svg"
-                alt="GitHub"
-              />
-            </a>
-            <a
-              class="mx-2 contact-section__social-link"
-              href="https://www.linkedin.com/in/krzysztof-umi%C5%84ski/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn Krzysztofa Umińskiego"
-            >
-              <img
-                class="contact-section__social-icon"
-                src="../assets/img/icons/linkedin.svg"
-                alt="LinkedIn"
-              />
-            </a>
-          </div>
+          <a
+            class="mx-2 contact-section__social-link"
+            href="https://www.linkedin.com/in/krzysztof-umi%C5%84ski/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Krzysztof Umiński"
+          >
+            <img
+              class="contact__social-icon"
+              src="../assets/img/icons/linkedin.svg"
+              alt="LinkedIn"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -63,16 +56,15 @@ export default {
 <style lang="scss" scoped>
 @use '../scss/mixins/mixin_app.scss' as *;
 
-.contact-section {
+.contact {
   margin-bottom: 3rem;
 
   &__content {
-    min-height: 50vh;
+    min-height: 40vh;
   }
 
-  &__email {
-    text-decoration: underline;
-    font-weight: 600;
+  &__footer {
+    margin-top: auto;
   }
 
   &__name {
@@ -81,23 +73,19 @@ export default {
     text-align: center;
   }
 
+  &__headline {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
   &__social-icon {
     width: 100%;
     max-width: 2.2rem;
     height: 2.2rem;
   }
 }
-
-.section-header {
-  &__headline {
-    @include flex_center;
-    text-align: center;
-    text-transform: uppercase;
-  }
-}
-
 @media screen and (max-width: 768px) {
-  .contact-section__social-icon {
+  .contact__social-icon {
     max-width: 1.8rem;
   }
 }

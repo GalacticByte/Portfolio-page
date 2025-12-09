@@ -1,27 +1,31 @@
 <template>
-  <section id="about" class="container about-section">
-    <div class="row about-section__title">
-      <div class="col-sm-12 about-section__title-text">
-        <h2 class="mt-5 mb-5 about-section__headline font-h2">O mnie</h2>
+  <section id="about" class="container about">
+    <div class="row about__header">
+      <div class="col-12">
+        <h2 class="mt-5 mb-5 font-h2 d-flex justify-content-center about__headline">O mnie</h2>
       </div>
     </div>
-    <section class="row mt-5 mb-5 about-section__content">
-      <div class="col-sm-10 about-section__text">
-        <p class="about-section__paragraph font-p">
-          <strong>Zajmuję się kodowaniem stron i aplikacji internetowych.</strong>
+    <div class="row mt-5 mb-5 justify-content-center">
+      <div class="col-lg-10 about__content text-center">
+        <p class="font-p">
+          Jestem front&#8209;end developerem z&nbsp;ponad trzyletnim doświadczeniem w&nbsp;tworzeniu
+          stron internetowych i&nbsp;lekkich aplikacji webowych. Łączę solidne podejście
+          do&nbsp;UI&nbsp;z&nbsp;praktyczną znajomością pracy w&nbsp;CMS&#8209;ach
+          oraz&nbsp;wykorzystaniem automatyzacji w&nbsp;chmurze.
         </p>
         <p class="about-section__paragraph font-p">
-          Jestem frontend developerem z ponad dwuletnim doświadczeniem i wykształceniem
-          informatycznym. Od zawsze pasjonuję się technologią &#8209;&nbsp;nie tylko programowaniem,
-          ale także bezpieczeństwem sieciowym i sprzętem komputerowym. Regularnie śledzę nowinki
-          branżowe i rozwijam swoje umiejętności, aby tworzyć nowoczesne, responsywne aplikacje
-          zgodne ze standardami W3C. Zwracam uwagę na jakość kodu oraz dobre praktyki, co pozwala mi
-          tworzyć wydajne i skalowalne rozwiązania.
+          Realizuję projekty o&nbsp;różnym stopniu złożoności &#8209;&nbsp;od&nbsp;prostych layoutów
+          po&nbsp;bardziej rozbudowane serwisy i&nbsp;autorskie rozwiązania. Chętnie sięgam
+          po&nbsp;nowe narzędzia i&nbsp;frameworki, aby&nbsp;stale rozwijać swoje umiejętności
+          i&nbsp;poszerzać horyzonty.
         </p>
-
-        <p class="about-section__paragraph font-p">Zapraszam do współpracy.</p>
+        <p class="about-section__paragraph font-p">
+          Stawiam na czytelny kod, wydajność i&nbsp;dobrą organizację procesu (również z&nbsp;pomocą
+          AI), dzięki czemu tworzone przeze mnie strony są&nbsp;funkcjonalne, szybkie i&nbsp;łatwe
+          w&nbsp;utrzymaniu.
+        </p>
       </div>
-    </section>
+    </div>
   </section>
 </template>
 <script>
@@ -31,15 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@use '../scss/mixins/mixin_app.scss' as *;
-
-.about-section__text {
-  width: 100%;
-  text-align: center;
-  z-index: 3;
-}
-.about-section__headline {
-  @include flex_center;
+.about__headline {
   text-transform: uppercase;
 }
 </style>

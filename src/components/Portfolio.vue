@@ -2,7 +2,7 @@
   <section id="portfolio" class="portfolio">
     <div class="row gx-0 text-center portfolio__header">
       <div class="col-12">
-        <h2 class="mt-5 mb-5 portfolio__title font-h2">Portfolio</h2>
+        <h2 class="mt-5 mb-5 portfolio__headline font-h2">Portfolio</h2>
       </div>
     </div>
     <div class="row gx-0 mt-5 mb-5 justify-content-center portfolio__content">
@@ -13,7 +13,7 @@
       >
         <div class="portfolio__overlay" role="button" tabindex="0" :aria-label="project.title">
           <div class="mt-3 text-center portfolio__overlay-content">
-            <h4 class="portfolio__overlay-title font-h4">{{ project.title }}</h4>
+            <h3 class="portfolio__overlay-title font-h4">{{ project.title }}</h3>
             <p class="portfolio__overlay-description font-p">{{ project.description }}</p>
           </div>
           <div class="d-flex justify-content-center portfolio__links">
@@ -42,9 +42,7 @@
           </div>
           <p class="portfolio__tech font-p-small">{{ project.technology }}</p>
         </div>
-        <div class="portfolio__card card">
-          <img :src="project.image" class="portfolio__image card-img-top" :alt="project.title" />
-        </div>
+        <img :src="project.image" class="portfolio__image card-img-top" :alt="project.title" />
       </div>
     </div>
   </section>
@@ -62,17 +60,17 @@ export default {
         id: 1,
         title: 'Aplikacja Czat',
         description: 'Prosta aplikacja czat',
-        github: 'https://github.com/geralt1002/Simple-Vue-Chat',
+        github: 'https://github.com/GalacticByte/Simple-Vue-Chat',
         live: 'https://chat-app-lh2l.onrender.com/',
-        technology: 'HTML / SCSS / VUE / SOCKET.IO / NODE.JS / MONGODB',
+        technology: 'HTML / SCSS / VUE / SOCKET.IO / EXPRESS.JS / MONGODB',
         image: images['/src/assets/img/chat-app.jpg'].default,
       },
       {
         id: 2,
         title: 'Strona Wizytówka',
         description: 'Strona wizytówka, na którą teraz patrzysz',
-        github: 'https://github.com/geralt1002/Portfolio-page',
-        live: 'https://geralt1002.github.io/Portfolio-page/',
+        github: 'https://github.com/GalacticByte/Portfolio-page',
+        live: 'https://galacticbyte.github.io/Portfolio-page/',
         technology: 'HTML / SCSS / VUE',
         image: images['/src/assets/img/portfolio.jpg'].default,
       },
@@ -80,28 +78,19 @@ export default {
         id: 3,
         title: 'Pogodynka',
         description: 'Pozwala sprawdzić aktualną pogodę i inne informacje pogodowe',
-        github: 'https://github.com/geralt1002/Weather-app-vue.js',
-        live: 'https://geralt1002.github.io/Weather-app-vue.js/',
-        technology: 'HTML / SCSS / VUE',
+        github: 'https://github.com/GalacticByte/Weather-app-vue.js',
+        live: 'https://galacticbyte.github.io/Weather-app-vue.js/',
+        technology: 'HTML / SCSS / VUE / OPENWEATHERMAP API',
         image: images['/src/assets/img/weather-app.jpg'].default,
       },
       {
         id: 4,
         title: 'Notatnik',
         description: 'Aplikacja pozwalająca na tworzenie notatek w formacie Markdown',
-        github: 'https://github.com/geralt1002/notes-app',
+        github: 'https://github.com/GalacticByte/notes-app',
         live: 'https://notes-app-k7v6.onrender.com/',
         technology: 'VUE / SCSS / EXPRESS.JS / MONGODB',
         image: images['/src/assets/img/notes-app.jpg'].default,
-      },
-      {
-        id: 5,
-        title: 'Meme Generator',
-        description: 'Prosta aplikacja pozawalająca na dodawanie napisów na dołączonym obrazie',
-        github: 'https://github.com/geralt1002/Meme-Generator',
-        live: 'https://geralt1002.github.io/Meme-Generator/dist/',
-        technology: 'HTML / CSS / JS',
-        image: images['/src/assets/img/meme_generator.jpg'].default,
       },
     ]
     return { projects }
@@ -113,7 +102,7 @@ export default {
 @use '../scss/mixins/mixin_app.scss' as *;
 
 .portfolio {
-  &__title {
+  &__headline {
     text-transform: uppercase;
     font-weight: bold;
   }
@@ -175,6 +164,7 @@ export default {
   &__link--live {
     font-weight: bold;
     background: -webkit-linear-gradient(#59d611 10%, #c2d307 50%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

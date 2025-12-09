@@ -20,7 +20,7 @@ body {
 
 .btn-main {
   padding: 1.2rem 2rem;
-  color: rgb(65, 68, 0);
+  color: rgb(20, 20, 20);
   background: linear-gradient(90deg, rgb(89, 214, 17), rgb(187, 186, 150));
   background-size: 200% 200%;
   transition:
@@ -29,7 +29,7 @@ body {
 
   &:hover {
     background-position: 100% 50%;
-    color: rgb(65, 68, 0);
+    color: rgb(20, 20, 20);
   }
   &:focus-visible {
     outline: 1px solid #fff;
@@ -178,6 +178,6 @@ body {
     font-size: 1.3rem;
   }
   .font-p-bigger {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
