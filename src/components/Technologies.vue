@@ -41,126 +41,121 @@
 </template>
 
 <script>
+import { addIds } from '@/utils/dataUtils'
+
 const images = import.meta.glob('@/assets/img/icons/*.svg', { eager: true })
 
 export default {
   name: 'TechnologiesComponent',
 
   setup() {
-    const categorizedTechs = {
+    const rawTechs = {
       Frontend: [
         {
-          id: 1,
           title: 'HTML',
           image: images['/src/assets/img/icons/html-icon.svg'].default,
         },
         {
-          id: 2,
           title: 'CSS',
           image: images['/src/assets/img/icons/css-file-format.svg'].default,
         },
         {
-          id: 3,
           title: 'Sass',
           image: images['/src/assets/img/icons/sass-icon.svg'].default,
         },
         {
-          id: 4,
           title: 'Bootstrap',
           image: images['/src/assets/img/icons/bootstrap5-icon.svg'].default,
         },
         {
-          id: 5,
           title: 'RWD',
           image: images['/src/assets/img/icons/phone-tablet-and-laptop.svg'].default,
         },
         {
-          id: 6,
           title: 'JS',
           image: images['/src/assets/img/icons/js-icon.svg'].default,
         },
         {
-          id: 7,
           title: 'jQuery',
           image: images['/src/assets/img/icons/jquery-icon.svg'].default,
         },
         {
-          id: 8,
           title: 'Tailwind CSS',
           image: images['/src/assets/img/icons/tailwind-icon.svg'].default,
         },
         {
-          id: 9,
           title: 'Vue.js',
           image: images['/src/assets/img/icons/vue-icon.svg'].default,
+        },
+        {
+          title: 'Typescript',
+          image: images['/src/assets/img/icons/typescript-logo.svg'].default,
         },
       ],
       'Narzędzia i Bundlery': [
         {
-          id: 10,
           title: 'Vite',
           image: images['/src/assets/img/icons/vitejs-logo.svg'].default,
         },
         {
-          id: 11,
           title: 'Webpack',
           image: images['/src/assets/img/icons/webpack-icon.svg'].default,
         },
         {
-          id: 12,
           title: 'Gulp',
           image: images['/src/assets/img/icons/gulp-icon.svg'].default,
         },
       ],
       'Backend i środowiska uruchomieniowe': [
         {
-          id: 13,
           title: 'Node.js',
           image: images['/src/assets/img/icons/nodejs-icon.svg'].default,
         },
       ],
       CMS: [
         {
-          id: 14,
           title: 'WordPress',
           image: images['/src/assets/img/icons/wordpress.svg'].default,
         },
       ],
       'Chmura i Integracje': [
         {
-          id: 15,
           title: 'Cloudflare',
           image: images['/src/assets/img/icons/cloudflare-icon.svg'].default,
         },
         {
-          id: 16,
           title: 'Workers',
           image: images['/src/assets/img/icons/cloudflare-workers-icon.svg'].default,
         },
         {
-          id: 17,
           title: 'Google Apps Script',
           image: images['/src/assets/img/icons/google-apps-script-icon.svg'].default,
         },
       ],
       'Kontrola wersji': [
         {
-          id: 18,
           title: 'GIT',
           image: images['/src/assets/img/icons/git-icon.svg'].default,
         },
         {
-          id: 19,
           title: 'Gitlab',
           image: images['/src/assets/img/icons/gitlab-icon2.svg'].default,
         },
         {
-          id: 20,
           title: 'Github',
           image: images['/src/assets/img/icons/github-icon.svg'].default,
         },
       ],
     }
+
+    let idCounter = 1
+    const categorizedTechs = Object.fromEntries(
+      Object.entries(rawTechs).map(([category, techs]) => {
+        const techsWithIds = addIds(techs, idCounter)
+        idCounter += techsWithIds.length
+        return [category, techsWithIds]
+      }),
+    )
 
     return {
       categorizedTechs,

@@ -11,88 +11,110 @@
         :key="project.id"
         class="col-xl-4 col-lg-4 col-md-6 col-sm-12 portfolio__item"
       >
-        <div class="portfolio__overlay" role="button" tabindex="0" :aria-label="project.title">
-          <div class="mt-3 text-center portfolio__overlay-content">
-            <h3 class="portfolio__overlay-title font-h4">{{ project.title }}</h3>
-            <p class="portfolio__overlay-description font-p">{{ project.description }}</p>
+        <div class="portfolio__card">
+          <div class="portfolio__image-wrapper">
+            <img :src="project.image" :alt="project.title" loading="lazy" />
           </div>
-          <div class="d-flex justify-content-center portfolio__links">
-            <a
-              v-if="project.github"
-              :href="project.github"
-              class="portfolio__link portfolio__link--github"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="portfolio__icon portfolio__icon--github"
-                src="../assets/img/icons/github.svg"
-                :alt="project.title + ' GitHub'"
-              />
-            </a>
-            <a
-              v-if="project.live"
-              :href="project.live"
-              class="portfolio__link portfolio__link--live"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              / Live
-            </a>
+          <div class="portfolio__card-body">
+            <div>
+              <h3 class="portfolio__card-title font-h4">{{ project.title }}</h3>
+              <p class="portfolio__card-description font-p">{{ project.description }}</p>
+              <div class="portfolio__tech-stack">
+                <span
+                  v-for="(tech, index) in project.technology.split(' / ')"
+                  :key="index"
+                  class="portfolio__tech-badge"
+                >
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
+            <div class="portfolio__card-footer">
+              <a
+                v-if="project.github"
+                :href="project.github"
+                class="portfolio__link portfolio__link--github"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <img
+                  class="portfolio__icon portfolio__icon--github"
+                  src="../assets/img/icons/github.svg"
+                  alt="GitHub"
+                />
+              </a>
+              <a
+                v-if="project.live"
+                :href="project.live"
+                class="portfolio__link portfolio__link--live"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                / Live
+              </a>
+            </div>
           </div>
-          <p class="portfolio__tech font-p-small">{{ project.technology }}</p>
         </div>
-        <img :src="project.image" class="portfolio__image card-img-top" :alt="project.title" />
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import { addIds } from '@/utils/dataUtils'
+
 const images = import.meta.glob('@/assets/img/*.jpg', { eager: true })
 
 export default {
   name: 'PortfolioComponent',
 
   setup() {
-    const projects = [
+    const rawProjects = [
       {
-        id: 1,
+        title: 'canvico-editor',
+        description: 'Prosty edytor obrazów w przeglądarce, oparty na TypeScript i Canvas API.',
+        github: 'https://github.com/GalacticByte/canvico-editor',
+        live: 'https://galacticbyte.github.io/canvico-editor/demo/',
+        technology: 'TYPESCRIPT / CANVAS API',
+        image: images['/src/assets/img/canvico-editor.jpg'].default,
+      },
+      {
         title: 'Aplikacja Czat',
         description: 'Prosta aplikacja czat',
         github: 'https://github.com/GalacticByte/Simple-Vue-Chat',
         live: 'https://chat-app-lh2l.onrender.com/',
-        technology: 'HTML / SCSS / VUE / SOCKET.IO / EXPRESS.JS / MONGODB',
-        image: images['/src/assets/img/chat-app.jpg'].default,
+        technology: 'HTML / SCSS / VUE / SOCKET.IO / EXPRESS.JS / PRISMA / POSTGRESQL',
+        image: images['/src/assets/img/chat-app-02.jpg'].default,
       },
       {
-        id: 2,
         title: 'Strona Wizytówka',
         description: 'Strona wizytówka, na którą teraz patrzysz',
         github: 'https://github.com/GalacticByte/Portfolio-page',
         live: 'https://galacticbyte.github.io/Portfolio-page/',
         technology: 'HTML / SCSS / VUE',
-        image: images['/src/assets/img/portfolio.jpg'].default,
+        image: images['/src/assets/img/portfolio-page-02.jpg'].default,
       },
       {
-        id: 3,
         title: 'Pogodynka',
         description: 'Pozwala sprawdzić aktualną pogodę i inne informacje pogodowe',
         github: 'https://github.com/GalacticByte/Weather-app-vue.js',
         live: 'https://galacticbyte.github.io/Weather-app-vue.js/',
         technology: 'HTML / SCSS / VUE / OPENWEATHERMAP API',
-        image: images['/src/assets/img/weather-app.jpg'].default,
+        image: images['/src/assets/img/weather-app-02.jpg'].default,
       },
       {
-        id: 4,
         title: 'Notatnik',
         description: 'Aplikacja pozwalająca na tworzenie notatek w formacie Markdown',
         github: 'https://github.com/GalacticByte/notes-app',
         live: 'https://notes-app-k7v6.onrender.com/',
         technology: 'VUE / SCSS / EXPRESS.JS / MONGODB',
-        image: images['/src/assets/img/notes-app.jpg'].default,
+        image: images['/src/assets/img/notes-app-02.jpg'].default,
       },
     ]
+
+    const projects = addIds(rawProjects)
+
     return { projects }
   },
 }
@@ -108,56 +130,141 @@ export default {
   }
 
   &__item {
-    position: relative;
-    cursor: pointer;
-    padding: 0.5rem;
+    padding: 1rem;
+  }
 
-    &:hover,
-    &:focus-within {
-      .portfolio__overlay {
-        opacity: 1;
-        transform: scale(1);
-        z-index: 3;
+  &__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+      border: 1px solid transparent;
+      background:
+        linear-gradient(#1a1a1a, #1a1a1a) padding-box,
+        linear-gradient(#59d611 10%, #c2d307 50%) border-box;
+      box-shadow: 0 10px 30px rgba(89, 214, 17, 0.1);
+
+      .portfolio__image-wrapper img {
+        transform: translateY(calc(-100% + 230px));
       }
     }
   }
 
-  &__overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    opacity: 0;
-    background: rgba(0, 0, 0, 0.7);
-    @include flex_center;
-    flex-direction: column;
-    gap: 1rem;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-    transform: scale(0.1);
+  &__image-wrapper {
+    width: 100%;
+    height: 260px;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid #444;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+    background-color: #151515;
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease;
 
-    &:focus,
-    &:focus-visible {
-      opacity: 1;
-      transform: scale(1);
+    // Browser Bar
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background-color: #2a2a2a;
+      border-bottom: 1px solid #333;
+      z-index: 2;
+    }
+
+    // Dots - Traffic Lights
+    &::after {
+      content: '';
+      position: absolute;
+      top: 11px;
+      left: 15px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #59d611;
+      box-shadow:
+        15px 0 0 #8dd40c,
+        // Second dot (Gradient Midpoint)
+        30px 0 0 #c2d307; // Third Dot (Brand Lime)
       z-index: 3;
-      outline: 2px solid white;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 30px;
+      transition: transform 3s ease-in-out;
     }
   }
 
-  &__overlay-title {
+  &__card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  &__card-title {
     font-weight: bold;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-align: center;
   }
 
-  &__overlay-description {
-    margin: 0 1rem;
+  &__card-description {
+    color: #b0b0b0;
+    margin-bottom: 1.5rem;
+    text-align: center;
   }
 
-  &__links {
-    .portfolio__icon--github {
-      width: 2rem;
+  &__tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+
+  &__tech-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  &__card-footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__icon--github {
+    width: 2rem;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 
@@ -167,10 +274,7 @@ export default {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-
-  &__tech {
-    text-align: center;
+    text-decoration: none;
   }
 }
 </style>
