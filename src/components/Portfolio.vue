@@ -1,8 +1,8 @@
 <template>
-  <section id="portfolio" class="portfolio">
+  <section id="portfolio" class="portfolio" aria-labelledby="portfolio-heading">
     <div class="row gx-0 text-center portfolio__header">
       <div class="col-12">
-        <h2 class="mt-5 mb-5 portfolio__headline font-h2">Portfolio</h2>
+        <h2 id="portfolio-heading" class="mt-5 mb-5 portfolio__headline font-h2">Portfolio</h2>
       </div>
     </div>
     <div class="row gx-0 mt-5 mb-5 justify-content-center portfolio__content">
@@ -13,7 +13,7 @@
       >
         <div class="portfolio__card">
           <div class="portfolio__image-wrapper">
-            <img :src="project.image" :alt="project.title" loading="lazy" />
+            <img :src="project.image" alt="" loading="lazy" />
           </div>
           <div class="portfolio__card-body">
             <div>
@@ -36,12 +36,12 @@
                 class="portfolio__link portfolio__link--github"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GitHub"
+                :aria-label="'Kod źródłowy projektu ' + project.title + ' na GitHub'"
               >
                 <img
                   class="portfolio__icon portfolio__icon--github"
                   src="../assets/img/icons/github.svg"
-                  alt="GitHub"
+                  alt=""
                 />
               </a>
               <a
@@ -50,6 +50,7 @@
                 class="portfolio__link portfolio__link--live"
                 target="_blank"
                 rel="noopener noreferrer"
+                :aria-label="'Zobacz demo projektu ' + project.title"
               >
                 / Live
               </a>

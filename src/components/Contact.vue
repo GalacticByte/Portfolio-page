@@ -1,8 +1,11 @@
 <template>
-  <section id="contact" class="container contact">
+  <section id="contact" class="container contact" aria-labelledby="contact-heading">
     <div class="row contact__header">
       <div class="col-12">
-        <h2 class="mb-3 mt-5 font-h2 d-flex justify-content-center contact__headline">
+        <h2
+          id="contact-heading"
+          class="mb-3 mt-5 font-h2 d-flex justify-content-center contact__headline"
+        >
           Chcesz podjąć współpracę?
         </h2>
       </div>
@@ -10,7 +13,7 @@
     <div class="row justify-content-center contact__content">
       <div class="col-12 d-flex flex-column align-items-center justify-content-center">
         <p class="font-p text-center">Jeśli chcesz mnie zatrudnić, pisz na adres</p>
-        <a class="btn btn-main font-p mt-3" href="mailto:krzysztof.uminski1@gmail.com" role="button"
+        <a class="btn btn-main font-p mt-3" href="mailto:krzysztof.uminski1@gmail.com"
           >krzysztof.uminski1@gmail.com</a
         >
       </div>
@@ -26,7 +29,7 @@
             rel="noopener noreferrer"
             aria-label="GitHub Krzysztof Umiński"
           >
-            <img class="contact__social-icon" src="../assets/img/icons/github.svg" alt="GitHub" />
+            <img class="contact__social-icon" src="../assets/img/icons/github.svg" alt="" />
           </a>
           <a
             class="mx-2 contact-section__social-link"
@@ -35,11 +38,7 @@
             rel="noopener noreferrer"
             aria-label="LinkedIn Krzysztof Umiński"
           >
-            <img
-              class="contact__social-icon"
-              src="../assets/img/icons/linkedin.svg"
-              alt="LinkedIn"
-            />
+            <img class="contact__social-icon" src="../assets/img/icons/linkedin.svg" alt="" />
           </a>
         </div>
       </div>
