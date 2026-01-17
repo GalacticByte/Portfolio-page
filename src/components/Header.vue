@@ -1,5 +1,5 @@
 <template>
-  <section class="home" role="region" aria-labelledby="home-title">
+  <section id="home" class="home" role="region" aria-labelledby="home-title">
     <div class="row">
       <div class="col-12 d-flex flex-column justify-content-center align-items-center home__hero">
         <h1 id="home-title" class="font-h1 home__title">front&nbsp;end developer</h1>

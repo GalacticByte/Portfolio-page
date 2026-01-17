@@ -2,7 +2,6 @@
   <nav
     ref="navbar"
     class="navbar navbar-expand-lg navbar-dark sticky-top nav-custom-bg container-fluid px-2 px-md-3"
-    role="navigation"
     aria-label="Główna nawigacja"
   >
     <a class="navbar-brand text-center text-lg-start" href="/" aria-label="Strona główna">
@@ -30,7 +29,7 @@
     <div id="navbarNav" class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav gap-lg-5 gap-3">
         <li class="nav-item font-p">
-          <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#header">Home</a>
+          <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#home">Home</a>
         </li>
         <li class="nav-item font-p">
           <a v-smooth-scroll="{ offset: -50 }" class="nav-link" href="#about">O mnie</a>
@@ -80,7 +79,7 @@ export default {
       }
 
       &:focus-visible {
-        border: 1px solid rgb(89, 214, 17);
+        outline: 1px solid rgb(89, 214, 17);
       }
     }
   }

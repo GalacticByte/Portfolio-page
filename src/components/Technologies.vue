@@ -1,8 +1,11 @@
 <template>
-  <section id="technologies" class="px-2 technologies">
+  <section id="technologies" class="px-2 technologies" aria-labelledby="technologies-heading">
     <div class="row g-0 text-center technologies__header">
       <div class="col-12">
-        <h2 class="mt-5 mb-5 d-flex justify-content-center technologies__headline font-h2">
+        <h2
+          id="technologies-heading"
+          class="mt-5 mb-5 d-flex justify-content-center technologies__headline font-h2"
+        >
           Technologie
         </h2>
       </div>
@@ -21,14 +24,9 @@
             :key="tech.id"
             class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6"
           >
-            <div
-              class="technologies__item d-flex flex-column align-items-center h-100"
-              role="button"
-              tabindex="0"
-              :aria-label="tech.title"
-            >
+            <div class="technologies__item d-flex flex-column align-items-center h-100">
               <span v-if="tech.tooltip" class="technologies__highlight-label"></span>
-              <img :src="tech.image" class="technologies__image" :alt="tech.title" />
+              <img :src="tech.image" class="technologies__image" alt="" />
               <div class="technologies__info mt-auto">
                 <p class="technologies__name font-p mb-0">{{ tech.title }}</p>
               </div>

@@ -1,8 +1,13 @@
 <template>
-  <section id="about" class="container about">
+  <section id="about" class="container about" aria-labelledby="about-heading">
     <div class="row about__header">
       <div class="col-12">
-        <h2 class="mt-5 mb-5 font-h2 d-flex justify-content-center about__headline">O mnie</h2>
+        <h2
+          id="about-heading"
+          class="mt-5 mb-5 font-h2 d-flex justify-content-center about__headline"
+        >
+          O mnie
+        </h2>
       </div>
     </div>
     <div class="row mt-5 mb-5 justify-content-center">
