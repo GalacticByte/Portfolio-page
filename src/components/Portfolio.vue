@@ -87,7 +87,8 @@ export default {
           'Aplikacja czatu w czasie rzeczywistym zbudowana w Vue 3 i TypeScript, wykorzystująca Socket.IO oraz własny backend w Express.js. Projekt obejmuje komunikację real-time, prosty mechanizm identyfikacji użytkownika oparty na JWT, persystencję wiadomości w PostgreSQL oraz wymianę danych opartą na DTO jako kontrakcie między frontendem i backendem.',
         github: 'https://github.com/GalacticByte/Simple-Vue-Chat',
         live: 'https://chat-app-lh2l.onrender.com/',
-        technology: 'HTML / SCSS / VUE / TYPESCRIPT / SOCKET.IO / EXPRESS.JS / PRISMA / POSTGRESQL',
+        technology:
+          'VUE / TAILWIND CSS / TYPESCRIPT / VITE / SOCKET.IO / NODE.JS / EXPRESS.JS / PRISMA / POSTGRESQL / JWT',
         image: images['/src/assets/img/chat-app-02.jpg'].default,
       },
       {
@@ -96,8 +97,18 @@ export default {
           'Fikcyjna strona korporacyjna oparta na autorskim motywie WordPress, zaprojektowana w oparciu o modułową architekturę sekcji. Projekt obejmuje dynamiczne formularze oraz elastyczny system pól oparty na Carbon Fields jako alternatywę dla ACF Pro.',
         github: 'https://github.com/GalacticByte/ecovaro-corporate-site',
         live: 'https://ecovaro-demo-website.42web.io/ecovaro/',
-        technology: 'HTML / SCSS / PHP / jQuery / Carbon Fields',
+        technology: 'WORDPRESS / BOOTSTRAP / PHP / jQuery / CARBON FIELDS',
         image: images['/src/assets/img/ecovaro-corporate-site-01.jpg'].default,
+      },
+      {
+        title: 'Notatnik',
+        description:
+          'Aplikacja do zarządzania notatkami w formacie Markdown, zbudowana w React i TypeScript. Umożliwia dodawanie, edytowanie i usuwanie notatek, edycję z podglądem na żywo, wyszukiwanie w czasie rzeczywistym oraz eksport do PDF. Stan serwerowy zarządzany jest przy użyciu TanStack Query, a backend oparto na Express.js i MongoDB, z kontraktowym API OpenAPI 3.0 i walidacją danych w runtime.',
+        github: 'https://github.com/GalacticByte/notes-app',
+        live: 'https://notes-app-k7v6.onrender.com/',
+        technology:
+          'REACT / TYPESCRIPT / VITE / TANSTACK QUERY / NODE.JS / EXPRESS.JS / MONGODB / OPENAPI',
+        image: images['/src/assets/img/notes-app-screenshot.jpg'].default,
       },
       {
         title: 'Strona Wizytówka',
@@ -105,26 +116,8 @@ export default {
           'Strona portfolio zbudowana w Vue, zaprojektowana jako prosta aplikacja prezentacyjna do wyświetlania projektów i informacji o autorze. Projekt opiera się na czytelnej strukturze aplikacji oraz komponentach dopasowanych do poszczególnych sekcji strony.',
         github: 'https://github.com/GalacticByte/Portfolio-page',
         live: 'https://galacticbyte.github.io/Portfolio-page/',
-        technology: 'HTML / SCSS / VUE',
+        technology: 'VUE / VITE / BOOTSTRAP / SCSS',
         image: images['/src/assets/img/portfolio-page-02.jpg'].default,
-      },
-      {
-        title: 'Pogodynka',
-        description:
-          'Aplikacja pogodowa oparta na Vue, integrująca się z OpenWeatherMap API. Umożliwia pobieranie i prezentację aktualnych danych pogodowych na żądanie.',
-        github: 'https://github.com/GalacticByte/Weather-app-vue.js',
-        live: 'https://galacticbyte.github.io/Weather-app-vue.js/',
-        technology: 'HTML / SCSS / VUE / OPENWEATHERMAP API',
-        image: images['/src/assets/img/weather-app-02.jpg'].default,
-      },
-      {
-        title: 'Notatnik',
-        description:
-          'Aplikacja do tworzenia, edytowania i usuwania notatek w formacie Markdown, z frontendem w Vue i backendem w Express.js. Projekt umożliwia podgląd sformatowanych notatek, wyszukiwanie w czasie rzeczywistym oraz eksport do PDF, a dane są przechowywane w MongoDB.',
-        github: 'https://github.com/GalacticByte/notes-app',
-        live: 'https://notes-app-k7v6.onrender.com/',
-        technology: 'VUE / SCSS / EXPRESS.JS / MONGODB',
-        image: images['/src/assets/img/notes-app-02.jpg'].default,
       },
     ]
 
