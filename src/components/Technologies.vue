@@ -86,6 +86,10 @@ export default {
           image: images['/src/assets/img/icons/vue-icon.svg'].default,
         },
         {
+          title: 'React',
+          image: images['/src/assets/img/icons/react.svg'].default,
+        },
+        {
           title: 'Typescript',
           image: images['/src/assets/img/icons/typescript-logo.svg'].default,
         },
