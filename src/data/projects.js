@@ -11,10 +11,10 @@ const rawProjects = [
     image: images['/src/assets/img/canvico-editor.jpg'].default,
   },
   {
-    title: 'Aplikacja Czat',
+    title: 'Realtime chat app',
     description:
       'Aplikacja czatu w czasie rzeczywistym zbudowana w Vue 3 i TypeScript, wykorzystująca Socket.IO oraz własny backend w Express.js. Projekt obejmuje komunikację real-time, prosty mechanizm identyfikacji użytkownika oparty na JWT, persystencję wiadomości w PostgreSQL oraz wymianę danych opartą na DTO jako kontrakcie między frontendem i backendem.',
-    github: 'https://github.com/GalacticByte/Simple-Vue-Chat',
+    github: 'https://github.com/GalacticByte/realtime-chat',
     live: 'https://chat-app-lh2l.onrender.com/',
     technologies: [
       'VUE',
